@@ -58,23 +58,32 @@ export default function Tasks(props){
 
     const [done, setDone] = useState(false);
     const showNext = ()=>{
-        setDone(true);
-        if(props.taskName !== "Help Moving" && props.taskName !== "Delivery"){
-            showNext1();
+        if(done === false){
+            setDone(true);
+            if(props.taskName !== "Help Moving" && props.taskName !== "Delivery"){
+                showNext1();
+            }
+        }else{
+            setDone(false);
+            if(props.taskName !== "Help Moving" && props.taskName !== "Delivery"){
+                showNext1();
+            }
         }
     }
     const [done1, setDone1] = useState(false);
     const showNext1 = ()=>{
-        setDone1(true);
+        if(done1 === false){setDone1(true);}
+        else{setDone1(false);}
     }
     const [done2, setDone2] = useState(false);
     const showNext2 = ()=>{
-        setDone2(true);
+        if(done2 === false){setDone2(true);}
+        else{setDone2(false);}
     }
 
     return <>
     <div className="taskDetailsForm">
-        <h6>YOUR TASK LOCATION</h6>
+        <h6 onClick={()=>{showNext()}}>YOUR TASK LOCATION</h6>
         <div className={`${done ? "d-none" : ""}`}>
             <div className="row my-4">
                 <div className="col-10">
@@ -87,7 +96,7 @@ export default function Tasks(props){
         </div>
     </div>
     <div className={`taskDetailsForm${showEndAddress() ? "" : " d-none"}`}>
-        <h6>END ADDRESS</h6>
+        <h6 onClick={()=>{showNext1()}}>END ADDRESS</h6>
         <div className={`${done ? "" : "d-none"}${done1 ? "d-none" : ""}`}>
             <div className="row my-4">
                 <div className="col-10">
@@ -100,7 +109,7 @@ export default function Tasks(props){
         </div>
     </div>
     <div className={`taskDetailsForm${showTaskOptionsAndDetails() ? "" : " d-none"}`}>
-        <h6>TASK OPTIONS</h6><br/>
+        <h6 onClick={()=>{showNext2()}}>TASK OPTIONS</h6><br/>
         <div className={`${done1 ? "" : "d-none"}${done2 ? "d-none" : ""}`}>
             <h5>How big is your task?</h5>
             <div class="form-check form-check-inline">
