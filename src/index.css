@@ -7,6 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F9FAFB;
 }
+.text{
+  color: #24a0ed;
+}
+.title{
+  position: absolute;
+  top: 8%;
+  left: 18%;
+  color: black;
+  font-size: 65px;
+  font-weight: bold;
+}
+.link{
+  text-decoration: none;
+}
 
 .taskDetailsHeader{
   width: 100%;
